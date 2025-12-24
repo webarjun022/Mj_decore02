@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutSection.css';
+import teamImage from '../assets/hero/meet_our_team.png';
 
 const AboutSection = () => {
     return (
@@ -18,10 +19,10 @@ const AboutSection = () => {
                 <div className="about-grid">
                     <div className="about-image-col fade-up stagger-1">
                         <div className="about-image-wrapper">
-                            {/* Using a high-quality team image from Unsplash */}
+                            {/* Using local team image */}
                             <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-                                alt="Austo Entertainment Team"
+                                src={teamImage}
+                                alt="MJ Decore Team"
                             />
                         </div>
                     </div>
