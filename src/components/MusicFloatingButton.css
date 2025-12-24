@@ -133,3 +133,29 @@
 }
 
 /* Bottom (Volume) */
+
+@media (max-width: 768px) {
+    .music-floating-container {
+        bottom: 120px;
+        /* Moved upward to avoid nav overlap */
+        right: 20px;
+    }
+
+    .main-music-btn {
+        width: 55px;
+        /* Reduced size */
+        height: 55px;
+    }
+
+    .menu-item {
+        width: 35px;
+        /* Reduced size */
+        height: 35px;
+    }
+
+    .music-menu {
+        bottom: 65px;
+        /* Adjusted for new button size */
+        gap: 10px;
+    }
+}
