@@ -1,0 +1,56 @@
+.big-text-section {
+    padding: 140px 0;
+    text-align: center;
+}
+
+.big-text-section.left {
+    text-align: left;
+}
+
+.section-subtitle {
+    display: block;
+    font-family: var(--font-sans);
+    /* Plus Jakarta */
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+}
+
+.big-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-title em {
+    font-family: inherit;
+    font-style: italic;
+}
+
+.cta-wrapper {
+    margin-top: 40px;
+}
+
+.cta-button.dark {
+    background-color: var(--text-primary);
+    color: #F2EFEA;
+    border: 1px solid var(--text-primary);
+}
+
+.cta-button.dark:hover {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .big-title {
+        font-size: 3rem;
+    }
+}

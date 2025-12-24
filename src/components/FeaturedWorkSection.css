@@ -1,0 +1,256 @@
+.featured-work-section {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    /* Reduced from 140px */
+    background-color: #F2EFEA;
+    /* Cream */
+}
+
+/* ... existing code ... */
+
+/* View Work Button - Hidden by default, shown on hover */
+.view-work-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #184E4A;
+    /* Same as Hero text color */
+    color: white;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.1s;
+    /* Slight delay for staggered effect */
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.view-work-btn:hover {
+    background-color: #123d3a;
+    /* Slightly darker shade on hover */
+    transform: translateY(0) scale(1.05);
+}
+
+.work-item:hover .view-work-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.center-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    display: block;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #184E4A;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.featured-title {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 5rem;
+    line-height: 0.95;
+    font-weight: 400;
+    color: #184E4A;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.featured-title em {
+    font-style: italic;
+    font-family: inherit;
+}
+
+.work-grid {
+    display: flex;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 600px;
+}
+
+.work-item {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    flex: 1;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 8px;
+    /* Optional: adds subtle rounding */
+}
+
+/* Default State: The wide item takes more space */
+.work-item.wide {
+    flex: 2.5;
+}
+
+/* Hover Interaction: reset all to 1, expand hovered to 3 */
+.work-grid:hover .work-item {
+    flex: 1;
+}
+
+.work-grid .work-item:hover {
+    flex: 3 !important;
+}
+
+.work-image-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+.work-image-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.work-item:hover .work-image-slider img {
+    transform: scale(1.05);
+}
+
+/* Specific Styles for Overlay Text (Wide Item) */
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.work-info-overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 2;
+    color: #fff;
+    text-align: left;
+}
+
+.work-info-overlay .work-category {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.work-info-overlay .work-title {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+    color: #fff;
+}
+
+/* Button styles moved to top */
+
+/* Mobile View All Button Container */
+.mobile-view-all-container {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .work-grid {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 40px;
+    }
+
+    .work-item {
+        width: 100%;
+        height: 500px;
+        flex: none;
+    }
+
+    .work-item.wide {
+        flex: none;
+    }
+
+    /* Hide per-item buttons */
+    .work-item .view-work-btn {
+        display: none !important;
+    }
+
+    /* Show the main mobile button */
+    .mobile-view-all-container {
+        display: block;
+    }
+
+    .view-work-btn.mobile-main-btn {
+        display: inline-block !important;
+        opacity: 1;
+        transform: none;
+        padding: 15px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-grid {
+        gap: 30px;
+        /* grid-template-* not needed as we use flex column from 1024px query, but 768px overrides? 
+           The 1024px query sets display: flex.
+           This 768px query sets grid-template-columns... implies it thinks it's grid.
+           If 1024px sets flex, and 768px sets grid props, it doesn't change display to grid unless explicit.
+           But to be safe, I should ensure it respects the column flex or explicit grid.
+           Actually, the 1024px query comes BEFORE 768px query in file? 
+           Yes (lines 168 vs 195).
+           So 768px rules cascade over 1024px.
+           I should remove grid-template stuff and just adjust gap/height.
+        */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .work-item.wide,
+    .work-item.vertical {
+        grid-column: auto;
+        aspect-ratio: auto;
+        height: 450px;
+        /* Uniform height for mobile */
+        width: 100%;
+    }
+
+    .featured-title {
+        font-size: 2.8rem;
+        /* Reduced from 5rem for mobile */
+    }
+
+    .big-title {
+        font-size: 3rem;
+    }
+
+    .featured-work-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}

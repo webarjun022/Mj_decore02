@@ -1,0 +1,237 @@
+/* Footer Main */
+.footer {
+    width: 100%;
+    background-color: #051616;
+    color: #F2EFEA;
+    padding: 100px 0 30px 0;
+    font-family: var(--font-sans);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. CTA Section */
+.footer-cta-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.footer-cta-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.footer-cta-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.footer-cta-text {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.footer-cta-btn {
+    display: inline-block;
+    background-color: var(--text-primary);
+    /* Using dark teal or can go lighter if needed for contrast on dark bg */
+    background-color: #F2EFEA;
+    color: #051616;
+    padding: 18px 50px;
+    border-radius: 50px;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-cta-btn:hover {
+    transform: translateY(-3px);
+    background-color: #e0ded9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Divider */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(242, 239, 234, 0.15);
+    margin-bottom: 80px;
+}
+
+/* 2. Main Grid */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* Columns */
+.footer-col h3.footer-brand {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #F2EFEA;
+}
+
+.footer-col h4 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.footer-bio {
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 30px;
+    max-width: 300px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: #F2EFEA;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+.footer-socials a:hover {
+    opacity: 1;
+    border-bottom: 1px solid #F2EFEA;
+}
+
+/* Link Lists */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #F2EFEA;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Contact List */
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-list li {
+    margin-bottom: 20px;
+}
+
+.footer-contact-list span {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.footer-contact-list a,
+.footer-contact-list p {
+    color: #F2EFEA;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* 3. Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(242, 239, 234, 0.15);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer-legal a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-col.brand-col {
+        grid-column: span 2;
+    }
+
+    .footer-socials,
+    .explore-col {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-cta-title {
+        font-size: 3rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-col.brand-col {
+        grid-column: span 1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}

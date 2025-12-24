@@ -1,0 +1,152 @@
+.events-reveal-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    background-color: #E0EFEA;
+    /* Light pale green */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The text layer sits on top but allows clicks to pass through to the image grid */
+.events-text-layer {
+    position: absolute;
+    z-index: 20;
+    text-align: center;
+    pointer-events: none;
+    /* Critical: allows hovering the grid below */
+    padding: 0 20px;
+}
+
+.events-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    /* User requested same color as "Unforgettable moments" text -> #184E4A */
+    color: #184E4A;
+    text-shadow: 0 0 20px rgba(242, 239, 234, 0.8);
+    /* Glow to separate from images */
+}
+
+.events-title em {
+    font-family: inherit;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.events-cta {
+    margin-top: 40px;
+    pointer-events: auto;
+    /* Re-enable clicking the button */
+}
+
+/* Button needs to match the text color as background */
+.cta-button {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: #184E4A;
+    /* "Button color" matched to text */
+    color: #F2EFEA;
+    /* Light text for contrast */
+    font-size: 1rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #0d2e2b;
+    /* Slightly darker on hover */
+}
+
+/* Image Grid Layer */
+.events-image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 90%;
+    height: 80%;
+    gap: 15px;
+    z-index: 10;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    opacity: 0;
+    /* Hidden by default */
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    cursor: pointer;
+}
+
+/* When hovering the specific grid item, it appears */
+.grid-item:hover {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 15;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .events-reveal-section {
+        min-height: 400px;
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .events-image-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        height: 350px;
+    }
+
+    .events-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-reveal-section {
+        min-height: 300px;
+        padding: 30px 0;
+    }
+
+    .events-image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        height: 200px;
+        /* Much compact */
+    }
+
+    .events-title {
+        font-size: 1.25rem;
+        /* Compact title */
+        margin-bottom: 15px;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}

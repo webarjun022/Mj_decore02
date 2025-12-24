@@ -1,0 +1,232 @@
+.testimonial-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+.testimonial-header {
+    text-align: center;
+    margin-bottom: 60px;
+    z-index: 10;
+}
+
+.testimonial-label {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.testimonial-title {
+    font-size: 4.5rem;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.testimonial-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Card Stack Container */
+.card-stack {
+    position: relative;
+    width: 500px;
+    height: 720px;
+    /* Adjust based on content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.t-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E8E6E1;
+    /* Card bg color from image, slightly darker cream */
+    border: 2px solid var(--text-primary);
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    padding: 20px 20px 80px 20px;
+    /* Extra bottom padding for button/space */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+}
+
+/* Card Content */
+.t-image-container {
+    width: 100%;
+    height: 340px;
+    background-color: #ccc;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    /* Image usually has no border inside the card, just fills area */
+}
+
+.t-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.t-quote {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.3;
+    padding: 0 10px;
+}
+
+.t-author {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    margin-top: auto;
+    /* Push to bottom if content varies */
+    margin-bottom: 20px;
+}
+
+/* Stack Positions */
+/* Front Card */
+.t-card[data-pos="0"] {
+    z-index: 30;
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Second Card (Middle) */
+.t-card[data-pos="1"] {
+    z-index: 20;
+    transform: translateY(15px) scale(0.96) rotate(-3deg);
+    opacity: 1;
+    /* Fully visible behind */
+}
+
+/* Third Card (Back) */
+.t-card[data-pos="2"] {
+    z-index: 10;
+    transform: translateY(30px) scale(0.92) rotate(4deg);
+    opacity: 1;
+}
+
+/* Hidden / Moving to Back */
+.t-card[data-pos="hidden"] {
+    z-index: 0;
+    transform: translateY(50px) scale(0.85);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The "Next" Button */
+.t-next-btn {
+    position: absolute;
+    bottom: -25px;
+    /* Half overlapping bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-primary);
+    color: #F2EFEA;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    /* Matches "Next ->" style usually */
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    z-index: 40;
+    /* Above cards */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.t-next-btn:hover {
+    transform: translateX(-50%) translateY(-3px);
+    background-color: #0d2e2b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .testimonial-title {
+        font-size: 3rem;
+    }
+
+    .card-stack {
+        width: 90%;
+        max-width: 400px;
+        height: 540px;
+        /* Reduced height for tablet/mobile */
+        padding-bottom: 0;
+    }
+
+    .t-card {
+        padding: 20px 20px 60px 20px;
+        /* Less padding */
+    }
+
+    .t-image-container {
+        height: 200px;
+        /* Reduced image height */
+        margin-bottom: 20px;
+    }
+
+    .t-quote {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-stack {
+        height: 480px;
+        max-width: 100%;
+        width: 95%;
+    }
+
+    .t-image-container {
+        height: 160px;
+        /* Further reduced for mobile */
+        margin-bottom: 15px;
+    }
+
+    .t-quote {
+        font-size: 0.95rem;
+        /* Slightly smaller text */
+        line-height: 1.4;
+    }
+
+    .testimonial-title {
+        font-size: 2.2rem;
+    }
+
+    .t-card {
+        padding: 15px 15px 50px 15px;
+    }
+}

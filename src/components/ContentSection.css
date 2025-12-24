@@ -1,0 +1,84 @@
+.content-section {
+    padding: 120px 0;
+}
+
+.content-section.dark {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.content-section.dark .subtitle,
+.content-section.dark .section-body {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.reverse .section-inner {
+    direction: rtl;
+    /* Quick hack for swapping columns, needs ensuring text direction stays LTR */
+}
+
+.reverse .text-col {
+    direction: ltr;
+    /* Reset text direction */
+}
+
+.subtitle {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.section-body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
+}
+
+.text-link {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
+}
+
+.image-wrapper {
+    background-color: #e0e0e0;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--easing);
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}

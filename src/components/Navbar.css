@@ -1,0 +1,376 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background-color: rgba(242, 239, 234, 0.75);
+    /* Partially transparent cream */
+    backdrop-filter: blur(8px);
+    /* Nice glass effect */
+    transition: transform 0.4s var(--easing), padding 0.3s ease;
+    box-shadow: none;
+    /* No shadow as requested */
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-group {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-group.left {
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.nav-group.center {
+    justify-content: center;
+}
+
+.nav-group.right {
+    justify-content: flex-end;
+}
+
+
+
+.nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    /* "Our Work" in screenshot looks Title Case/Normal, not Upper */
+    /* Actually looks transparent background with dark text */
+    position: relative;
+}
+
+/* Center Out Underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s var(--easing), left 0.3s var(--easing);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.cta-button {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    /* "Book Your DJ" */
+    background-color: #184E4A;
+    color: #F2EFEA;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 1px solid #184E4A;
+    transition: all 0.3s var(--easing);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: #184E4A;
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    /* Above navbar */
+    width: 50px;
+    height: 50px;
+    background-color: #DAD6CE;
+    /* Light circle bg from image looks grayish/cream */
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger {
+    width: 24px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #051616;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: #E8E6E1;
+    /* Light cream bg */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.menu-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #184E4A;
+}
+
+.close-menu-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #184E4A;
+    cursor: pointer;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered as per image 0 */
+    gap: 25px;
+    /* Spacing */
+    margin-top: 20px;
+}
+
+.mobile-menu-links a {
+    font-family: var(--font-serif);
+    /* Looks like serif in image 0 title... wait image 0 links are sans or serif? */
+    /* Looking at image 0 ("Menu" "Home" "Our Work"): "Home" looks distinct. Actually looks sans-serif but stylized. Let's use generic serif for headers usually, but the image shows:
+       "Home" in large greyish text.
+       "Our Work" in large dark teal text.
+       It seems active state or just style.
+       Wait, "Home" is light grey, "Our Work" is dark green. Maybe hover or active?
+       I'll make them all dark green for now.
+    */
+    font-family: var(--font-sans);
+    /* Use sans for menu items based on "Home" look, or maybe serif? Hero text is Serif. Menu items look like sans in image 0? Hard to tell. "Home" "Our Work" look like sans-serif geometric. */
+    font-size: 3rem;
+    /* Large text */
+    color: #184E4A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.mobile-menu-links a.mobile-cta {
+    font-size: 3rem;
+    /* "Book Your DJ" looks same size in image 0 */
+}
+
+/* Media Queries */
+/* Mobile Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    /* Above navbar */
+    width: 40px;
+    height: 40px;
+    background-color: #DAD6CE;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger {
+    width: 24px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #051616;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Note: hamburger has 2 spans in JSX? Yes. 
+   Wait, standard usually 3. 
+   JSX: 
+    <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+               <span></span>
+               <span></span>
+            </div>
+   If 2 spans: 
+   1st: top
+   2nd: bottom
+   Rotation logic needs to match.
+   If 2 spans, maybe middle one missing.
+   Let's assume just cross X.
+   Span 1: translateY(6px) rotate(45deg).
+   Span 2: translateY(-6px) rotate(-45deg).
+   Distance is 14px total. Spans are approx 2px thick. Space is ~10px.
+   6px might be right.
+*/
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: #E8E6E1;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.menu-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #184E4A;
+}
+
+.close-menu-btn {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: #184E4A;
+    cursor: pointer;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 30px;
+}
+
+.mobile-menu-links a {
+    font-family: var(--font-sans);
+    font-size: 2.5rem;
+    color: #184E4A;
+    /* Dark Green */
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.mobile-menu-links a.mobile-cta {
+    /* "Book Your DJ" links style */
+}
+
+@media (max-width: 1024px) {
+
+    .nav-group.left,
+    .nav-group.right {
+        display: none !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .navbar-content {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .nav-group.center {
+        position: static;
+        transform: none;
+        left: auto;
+        justify-content: flex-start;
+        flex: 1;
+    }
+
+    .mobile-menu-toggle {
+        position: static;
+        right: auto;
+        top: auto;
+        transform: none;
+    }
+
+    .nav-logo-image {
+        height: 80px;
+        margin-left: 0;
+        /* consistent alignment with container padding */
+        margin-top: 5px;
+        /* slight visual balance */
+    }
+}

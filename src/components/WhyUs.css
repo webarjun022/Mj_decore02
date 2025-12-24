@@ -1,0 +1,192 @@
+.why-us-section {
+    position: relative;
+    background-color: #184E4A;
+    color: #F2EFEA;
+    margin-top: -80px;
+    /* Negative margin to pull up under hero */
+    padding-bottom: 0;
+    width: 100%;
+    min-height: 130vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wave-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+}
+
+.wave-divider.top {
+    top: -1px;
+    transform: rotate(180deg);
+}
+
+.wave-divider.bottom {
+    bottom: -1px;
+    transform: scaleY(-1);
+}
+
+.wave-divider svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.wave-divider .shape-fill {
+    fill: #F2EFEA;
+}
+
+.why-us-content-wrapper {
+    padding: 200px 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.max-width-container {
+    max-width: 1200px;
+    /* Wider container */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.why-us-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    padding: 0 40px;
+}
+
+.why-us-label-col {
+    padding-top: 25px;
+    flex-shrink: 0;
+    width: 150px;
+}
+
+.why-us-label {
+    display: block;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.why-us-text-col {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.why-us-title {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 5.5rem;
+    line-height: 0.9;
+    font-weight: 400;
+    margin: 0 0 4rem 0;
+    color: #fff;
+    text-align: right;
+    /* Push title to right somewhat if desired, or keep left aligned but big? 
+    Wait, user said "More than music..." on right. 
+    Let's align the text-col content to the right? 
+    The image shows standard left alignment for title BUT pushed over.
+    However, "text on left" refers to label. "Music" on right.
+    I will make the Flex container split strict left/right.
+    */
+    width: 100%;
+    text-align: left;
+    /* Keep left aligned within its column, but the column is to the right of label */
+}
+
+.why-us-title .serif-italic {
+    font-style: italic;
+    font-family: inherit;
+    display: block;
+}
+
+.why-us-desc-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Push description to the right */
+    padding-right: 0;
+    margin-top: 20px;
+}
+
+.why-us-desc {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 1.35rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.95;
+    max-width: 500px;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 30px;
+}
+
+/* Response adjustments */
+@media (max-width: 1200px) {
+    .why-us-title {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .why-us-layout {
+        gap: 40px;
+    }
+
+    .why-us-label-col {
+        width: 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .why-us-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .why-us-content-wrapper {
+        padding: 120px 20px 100px 20px;
+        /* Increased top/bottom padding to keep content inside waves */
+    }
+
+    .why-us-label-col {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .why-us-title {
+        font-size: 2.8rem;
+        /* Slightly smaller to ensure fit */
+        margin-bottom: 1.5rem;
+    }
+
+    .why-us-section {
+        min-height: auto;
+        margin-top: -60px;
+        /* Adjust overlap */
+        padding-bottom: 0px;
+    }
+
+    .why-us-desc-container {
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+
+    .why-us-desc {
+        max-width: 100%;
+        font-size: 1.1rem;
+        padding-top: 20px;
+    }
+}

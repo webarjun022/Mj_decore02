@@ -1,0 +1,60 @@
+.tree-container {
+    position: absolute;
+    z-index: 10;
+    /* Above background, below content/navbar if needed. Actually it overlaps content in Austo */
+    overflow: hidden;
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.tree-container.left {
+    top: 0;
+    left: -200px;
+    width: 700px;
+    mix-blend-mode: multiply;
+}
+
+.tree-container.right {
+    top: 150px;
+    right: -200px;
+    width: 700px;
+    transform: scaleX(-1);
+    mix-blend-mode: multiply;
+}
+
+.tree-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Increase brightness/contrast to ensure background is pure white for multiply blending */
+    filter: brightness(1.1) contrast(1.1) grayscale(100%);
+}
+
+/* Ensure content stays above trees if needed, or let trees overlap for effect */
+.app-container {
+    position: relative;
+    z-index: 20;
+}
+
+@media (max-width: 1024px) {
+    .tree-container {
+        display: none !important;
+    }
+}
+
+/* Page Transitions */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-enter {
+    animation: pageFadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}

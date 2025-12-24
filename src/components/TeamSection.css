@@ -1,0 +1,58 @@
+.team-section {
+    padding: 100px 0;
+}
+
+.team-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Image wider */
+    gap: 80px;
+    align-items: center;
+    /* Or start? Screenshot shows text centered vertically relative to image? Let's assume center */
+}
+
+.team-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    /* It looks quite wide in the first screenshot snippet, possibly just cropped. Let's go standard landscape */
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.team-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+.team-text-col {
+    padding-left: 20px;
+}
+
+.team-body p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.team-cta {
+    margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .team-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .team-text-col {
+        padding-left: 0;
+    }
+}

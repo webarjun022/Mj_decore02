@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mjdecore.vercel.app/sitemap.xml
