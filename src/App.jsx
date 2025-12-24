@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
@@ -13,6 +13,7 @@ import ServicesPage from './pages/ServicesPage';
 
 function App() {
     const [loading, setLoading] = useState(true);
+    const location = useLocation();
 
     // Scroll to top on refresh
     useEffect(() => {
@@ -22,10 +23,10 @@ function App() {
         window.scrollTo(0, 0);
     }, []);
 
-    useScrollAnimation(!loading);
+    useScrollAnimation(!loading, location.pathname);
 
     return (
-        <Router>
+        <div className="app-main">
             <Loader onLoaded={() => setLoading(false)} />
 
             {/* Side Tree Videos - Persistent */}
@@ -54,7 +55,7 @@ function App() {
                 <MusicFloatingButton />
                 <Footer />
             </div>
-        </Router>
+        </div>
     );
 }
 

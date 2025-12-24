@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaHeart } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -82,15 +83,13 @@ const Footer = () => {
                 {/* 3. Bottom Bar */}
                 <div className="footer-bottom fade-up stagger-3">
                     <div className="footer-copyright">
-                        © {new Date().getFullYear()} MJ Decore. All rights reserved.
+                        © 2025 MJ Decore
                     </div>
                     <div className="footer-legal">
                         <a href="#">Privacy Policy</a>
-                        <span>•</span>
-                        <a href="#">Terms & Conditions</a>
                     </div>
                     <div className="site-credit">
-                        Designed with care.
+                        Site by - <a href="https://wa.me/919172182967" target="_blank" rel="noopener noreferrer" className="creator-link">Made by <FaHeart className="heart-icon" /> codeharsh27</a>
                     </div>
                 </div>
 

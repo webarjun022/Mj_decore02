@@ -184,7 +184,54 @@
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 0.9;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.creator-link {
+    color: #F2EFEA;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.creator-link:hover {
+    color: #FF6B6B;
+    /* A nice color for hover, maybe the heart color? Or just white/bright */
+    text-decoration: underline;
+}
+
+.heart-icon {
+    color: #FF6B6B;
+    font-size: 0.9em;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.2);
+    }
+
+    60% {
+        transform: scale(1);
+    }
 }
 
 .footer-legal a {

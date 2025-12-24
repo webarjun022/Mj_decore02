@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useScrollAnimation = (enabled = true) => {
+const useScrollAnimation = (enabled = true, dependency = null) => {
     useEffect(() => {
         if (!enabled) return;
 
@@ -19,13 +19,19 @@ const useScrollAnimation = (enabled = true) => {
             }
         );
 
-        const elements = document.querySelectorAll('.fade-up');
-        elements.forEach((el) => observer.observe(el));
+        // Small delay to ensure DOM is ready on route change
+        const timeoutId = setTimeout(() => {
+            const elements = document.querySelectorAll('.fade-up');
+            elements.forEach((el) => observer.observe(el));
+        }, 100);
 
         return () => {
+            clearTimeout(timeoutId);
+            const elements = document.querySelectorAll('.fade-up');
             elements.forEach((el) => observer.unobserve(el));
+            observer.disconnect();
         };
-    }, [enabled]); // Re-run when enable status changes
+    }, [enabled, dependency]); // Re-run when enable status or dependency changes
 };
 
 export default useScrollAnimation;
