@@ -90,9 +90,15 @@
     overflow: hidden;
     cursor: pointer;
     flex: 1;
-    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: 8px;
     /* Optional: adds subtle rounding */
+}
+
+/* Apply flex transition only on Desktop to prevent mobile layout thrashing */
+@media (min-width: 1025px) {
+    .work-item {
+        transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
 }
 
 /* Default State: The wide item takes more space */
@@ -124,8 +130,10 @@
     transition: transform 0.8s ease;
 }
 
-.work-item:hover .work-image-slider img {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .work-item:hover .work-image-slider img {
+        transform: scale(1.05);
+    }
 }
 
 /* Specific Styles for Overlay Text (Wide Item) */
