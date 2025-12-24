@@ -157,8 +157,8 @@
     }
 
     .why-us-content-wrapper {
-        padding: 120px 20px 100px 20px;
-        /* Increased top/bottom padding to keep content inside waves */
+        padding: 90px 20px 80px 20px;
+        /* Adjusted padding for smaller waves */
     }
 
     .why-us-label-col {
@@ -188,5 +188,9 @@
         max-width: 100%;
         font-size: 1.1rem;
         padding-top: 20px;
+    }
+
+    .wave-divider svg {
+        height: 70px;
     }
 }
