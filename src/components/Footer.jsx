@@ -81,15 +81,22 @@ const Footer = () => {
                 </div>
 
                 {/* 3. Bottom Bar */}
+                {/* 3. Bottom Bar */}
                 <div className="footer-bottom fade-up stagger-3">
                     <div className="footer-copyright">
                         © 2025 MJ Decore
                     </div>
+
+                    <div className="site-credit">
+                        <a href="https://wa.me/919172182967" target="_blank" rel="noopener noreferrer" className="creator-link">
+                            <span>Designed & Developed by</span>
+                            <strong>codeharsh27</strong>
+                            <FaHeart className="heart-icon" />
+                        </a>
+                    </div>
+
                     <div className="footer-legal">
                         <a href="#">Privacy Policy</a>
-                    </div>
-                    <div className="site-credit">
-                        Site by - <a href="https://wa.me/919172182967" target="_blank" rel="noopener noreferrer" className="creator-link">Made by <FaHeart className="heart-icon" /> codeharsh27</a>
                     </div>
                 </div>
 

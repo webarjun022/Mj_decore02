@@ -184,7 +184,6 @@
 .footer-bottom {
     border-top: 1px solid rgba(242, 239, 234, 0.15);
     padding-top: 20px;
-    /* Reduced from 30px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -194,21 +193,57 @@
     gap: 20px;
 }
 
+.site-credit {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    order: 2;
+    /* Ensure it stays in center visually if using equal spacing logic */
+}
+
+/* Ensure copyright and legal take specific sides or auto */
+.footer-copyright {
+    flex: 1;
+    order: 1;
+}
+
+.footer-legal {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    order: 3;
+}
+
 .creator-link {
-    color: #F2EFEA;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 5px;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    transition: color 0.3s ease;
+    gap: 8px;
+    color: #F2EFEA;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.creator-link span {
+    opacity: 0.7;
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+.creator-link strong {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff;
 }
 
 .creator-link:hover {
-    color: #FF6B6B;
-    /* A nice color for hover, maybe the heart color? Or just white/bright */
-    text-decoration: underline;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .heart-icon {
@@ -282,8 +317,20 @@
     }
 
     .footer-bottom {
+        flex-direction: column-reverse;
+        /* Put Copyright at bottom, credit at top or maintain logical order? standard is stack. */
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+
+    /* Reset width/order for mobile stack */
+    .site-credit,
+    .footer-copyright,
+    .footer-legal {
+        flex: auto;
+        order: unset;
+        width: 100%;
+        justify-content: center;
     }
 }
