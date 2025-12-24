@@ -3,7 +3,8 @@
     width: 100%;
     background-color: #051616;
     color: #F2EFEA;
-    padding: 100px 0 30px 0;
+    padding: 60px 0 40px 0;
+    /* Reduced top padding from 100px */
     font-family: var(--font-sans);
     position: relative;
     overflow: hidden;
@@ -20,7 +21,8 @@
 /* 1. CTA Section */
 .footer-cta-section {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    /* Reduced from 80px */
 }
 
 .footer-cta-title {
@@ -70,7 +72,8 @@
     width: 100%;
     height: 1px;
     background-color: rgba(242, 239, 234, 0.15);
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    /* Reduced from 80px */
 }
 
 /* 2. Main Grid */
@@ -78,7 +81,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 60px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
+    /* Reduced from 50px */
 }
 
 /* Columns */
@@ -179,7 +183,8 @@
 /* 3. Bottom Bar */
 .footer-bottom {
     border-top: 1px solid rgba(242, 239, 234, 0.15);
-    padding-top: 40px;
+    padding-top: 20px;
+    /* Reduced from 30px */
     display: flex;
     justify-content: space-between;
     align-items: center;

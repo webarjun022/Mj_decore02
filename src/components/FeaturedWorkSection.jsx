@@ -57,15 +57,15 @@ const FeaturedWorkSection = () => {
                     </div>
 
                     {/* Item 3: Wide Layout - Reel 3 (Wide Decor) */}
-                    <div className="work-item wide fade-up stagger-3" onClick={() => window.open('https://www.instagram.com/reel/DRJvm88jfHM/?igsh=YTZtMXc1b3J1ZG91', '_blank')}>
+                    <div className="work-item wide fade-up stagger-3" onClick={() => window.open('https://www.instagram.com/mjevents_pune/', '_blank')}>
                         <div className="work-image-slider">
                             <img src={reel3} alt="Event Venue" />
-                            <div className="img-overlay"></div>
+                            <div className="img-overlay"></div> 
                             <div className="work-info-overlay">
                                 <span className="work-category">Highlights</span>
                                 <h3 className="work-title">Grand Ambience</h3>
                                 <a
-                                    href="https://www.instagram.com/reel/DRJvm88jfHM/?igsh=YTZtMXc1b3J1ZG91"
+                                    href="https://www.instagram.com/mjevents_pune/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="view-work-btn"
@@ -80,7 +80,7 @@ const FeaturedWorkSection = () => {
 
                 {/* Mobile View All Button */}
                 <div className="mobile-view-all-container">
-                    <a href="https://www.instagram.com/mjevents_pune?igsh=Mm5oeXU1eW1peDNs" target="_blank" rel="noopener noreferrer" className="view-work-btn mobile-main-btn">
+                    <a href="https://www.instagram.com/mjevents_pune/" target="_blank" rel="noopener noreferrer" className="view-work-btn mobile-main-btn">
                         View all work
                     </a>
                 </div>
